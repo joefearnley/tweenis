@@ -32,7 +32,7 @@ function updateList() {
                 var html = getTweetContent(tweet);
                 $('#main').prepend(html);
                 $('#'+tweet.id).hide();
-                $('#'+tweet.profile_image_url).show('slow');
+                $('#'+tweet.id).show('slow');
                 $('#'+lastId).remove();
             }
         });
@@ -44,14 +44,11 @@ function updateList() {
  * @param tweet
  */
 function getTweetContent(tweet) {
-
-    console.log(tweet);
-
     var html = '';
     html += '<blockquote id="'+tweet.id+'">';
     html += '<p>';
-    html += '<img src="http://img.tweetimag.es/i/'+tweet.from_user+'_n"  height="48" width="48" />&nbsp;';
-    html += '<a href="http://twitter.com/'+tweet.from_user+'" class="bold">'+tweet.from+'</a> says ';
+    html += '<img src="http://img.tweetimag.es/i/'+tweet.from_user+'_n"  height="48" width="48" />&nbsp;&nbsp;';
+    html += '<a href="http://twitter.com/'+tweet.from_user+'" class="bold">'+tweet.from_user+'</a> says ';
     html += '<br />'+tweet.text.parseURL().parseUsername().parseHashtag();
     html += '</p>';
     html += '</blockquote>';
