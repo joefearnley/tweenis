@@ -33,11 +33,7 @@ h2 {
     text-transform: uppercase;
 }
 
-h3 {
-    font-size: 1.2em;
-}
-
-p, h1, h2, h3 { 
+p, h1, h2 { 
     margin: 10px 15px;
 }
 
@@ -51,30 +47,6 @@ img {
     background: #FAFAFA; 
 }
 
-img.float-right {
-    margin: 5px 0px 5px 15px;
-}
-
-img.float-left { 
-    margin: 5px 15px 5px 0px;
-}
-
-code {
-    margin: 5px 0;
-    padding: 10px;
-    text-align: left;
-    display: block;
-    overflow: auto;  
-    font: 500 1em/1.5em 'Lucida Console', 'courier new', monospace;
-    background: #FAFAFA;
-    border: 1px solid #f2f2f2;  
-    border-left: 3px solid #009ACD;
-}
-
-acronym { 
-    cursor: help;
-    border-bottom: 1px solid #777;
-}
 blockquote {
     margin: 15px; 	padding: 0 0 0 20px;  	
     background-color: #FAFAFA; 
@@ -83,111 +55,6 @@ blockquote {
     border-left: 3px solid #009ACD;  
     font: 1.2em/1.5em "Trebuchet MS", Tahoma, sans-serif; 
     color: #666666;	
-}
-
-table {
-    border-collapse: collapse;
-    margin: 10px 15px;	
-}
-
-th strong {
-    color: #fff;
-}
-
-th {
-    background: #74A846;
-    height: 29px;
-    padding-left: 11px;
-    padding-right: 11px;
-    color: #fff;
-    text-align: left;
-    border-left: 1px solid #B6D59A;
-    border-bottom: solid 2px #FFF;
-}
-
-tr {
-    height: 30px;
-}
-td {
-    padding-left: 11px;
-    padding-right: 11px;
-    border-left: 1px solid #FFF;
-    border-bottom: solid 1px #ffffff;
-}
-
-td.first,th.first {
-    border-left: 0px;
-}
-
-tr.row-a {
-    background: #F8F8F8;
-}
-
-tr.row-b {
-    background: #EFEFEF;
-}
-
-form {
-    margin:10px 15px; padding: 0;
-    border: 1px solid #f2f2f2; 
-    background-color: #FAFAFA; 
-}
-label {
-    display:block;
-    font-weight:bold;
-    margin:5px 0;
-}
-
-input {
-    padding: 2px;
-    border:1px solid #eee;
-    font: normal 1em "Trebuchet MS", Tahoma, sans-serif;
-    color:#777;
-}
-
-textarea {
-	width:400px;
-	padding:2px;
-	font: normal 1em "Trebuchet MS", Tahoma, sans-serif;
-	border:1px solid #eee;
-	height:100px;
-	display:block;
-	color:#777;
-}
-input.button { 
-    margin: 0; 
-    font: bold 1em Arial, Sans-serif; 
-    background: #FFF url(../images/gradientbg.jpg) repeat-x; 
-    padding: 2px 3px; 
-    color: #333;	
-    border: 1px solid #DADADA;	
-}
-
-.searchform {
-    background-color: transparent;
-    border: none;	margin: 0; padding: 0;	
-}
-.searchform p {
-    margin: 10px;
-    padding: 0;
-}
-
-.searchform input.textbox { 
-    width: 130px;
-    color: #333; 
-    height: 20px;
-    padding: 2px;	
-    vertical-align: top;
-}
-
-.searchform input.button { 
-    font: bold 12px Arial, Sans-serif; 
-    color: #333;	
-    width: 60px;
-    height: 26px;
-    border: 1px solid #DADADA;
-    padding: 3px 5px;	
-    vertical-align: top;
 }
 
 #header-content, #content, #footer-content {
@@ -230,39 +97,6 @@ input.button {
     left: 40px;
 }
 
-#header-content ul {
-    position: absolute;
-    right: -5px; top: 15px;
-    font: bolder 1.3em 'Trebuchet MS', sans-serif;
-    color: #FFF;
-    list-style: none;
-    margin: 0; padding: 0;		
-}
-
-#header-content li {
-    display: inline;
-}
-
-#header-content li a {
-    float: left;
-    display: block;
-    padding: 3px 12px;	
-    color: #FFF;
-    background-color: #333;
-    text-decoration: none;
-    border-right: 1px solid #272727;
-}
-
-#header-content li a:hover {
-    background: #009ACD;
-    color: #FFF;
-}
-
-#header-content li a#current  {
-    background: #009ACD;
-    color: #FFF;
-}
-
 .headerphoto {
     margin: 0 auto;
     width: 770px;
@@ -283,98 +117,14 @@ input.button {
     margin: 0 auto;	
 }
 
-#sidebar {
-    float: right;
-    width: 30%;
-    margin: 0 0 10px 0; padding: 0;	
-}
-
-#sidebar h1 {
-    padding: 10px 0px 5px 10px;
-    margin: 0;	
-    font: bold 1.3em 'Trebuchet MS', Tahoma, Sans-serif;
-}
-
-.sidebox {
-    background: #F5F5F5;
-    border: 1px solid #EFEDED;
-    margin-bottom: 10px;
-}
-
-#sidebar ul.sidemenu {
-    list-style:none;
-    margin: 10px 0 15px 0;
-    padding: 0;
-    background: #F2F2F2;			
-}
-
-#sidebar ul.sidemenu li {
-    padding: 0px 10px;
-}
-
-#sidebar ul.sidemenu a {
-    display:block;
-    font-weight:normal;
-    color: #333;
-    height: 1.5em;	
-    padding:.3em 0 .3em 15px;
-    line-height: 1.5em;
-    border-bottom: 1px dashed #D4D4D4;
-    text-decoration:none;
-}
-
-#sidebar ul.sidemenu a.top{	
-    border-top: 1px dashed #D4D4D4;
-}
-
-#sidebar ul.sidemenu a:hover {
-    padding: .3em 0 .3em 10px;
-    border-left: 5px solid  #009ACD;
-    color: #009ACD;		
-}
-
 #main {
     float: left;
     width: 100%;	
     margin: 0 0 10px 0; padding: 0;	
 }
-#main h1 {
-    padding: 10px 0px 0px 5px;
-    margin: 0 0 0 10px;
-    border-bottom: 1px solid #f2f2f2; 	
-    font: normal 1.5em 'Trebuchet MS', Tahoma, Sans-serif;
-}
 
 #main ul li {
     list-style-image: url(../images/bullet.gif);
-}
-
-.post {
-    margin: 0; padding: 0;
-    background: #FFF url(../images/gradientbg.jpg) repeat-x;
-    border: 1px solid #EFEDED;
-}
-
-.post .post-footer {
-    background-color: #FAFAFA;
-    border: 1px solid #f2f2f2;
-    padding: 5px; margin-top: 20px;
-    font-size: 95%;
-}
-
-.post .post-footer .date {
-    background: url('../images/clock.gif') no-repeat 0 center;
-    padding-left: 20px; margin: 0 10px 0 5px;
-}
-
-.post .post-footer .comments {
-    background: url('../images/comment.gif') no-repeat 0 center;
-    padding-left: 20px; margin: 0 10px 0 5px;
-}
-
-.post .post-footer .readmore {
-    background: url('../images/page.gif') no-repeat 0 center;
-    padding-left: 20px; margin: 0 10px 0 5px;
 }
 
 #footer {
@@ -384,12 +134,7 @@ input.button {
     text-align: center;	
 }
 
-#footer h1, #footer p {
-    margin-left: 0;
-}
-
 #footer-content {	
-    border-top: 1px solid #EAEAEA;
     margin: 0 auto;
     padding-left: 15px;
 }
@@ -402,41 +147,6 @@ input.button {
 #footer-content a:hover {
     text-decoration: underline;
     color: #333;
-}
-
-#footer-content ul {
-    list-style: none;
-    margin: 0; padding: 0;
-}
-
-#footer-content .col {
-    width: 32%;
-    padding: 0 5px 30px 0;	
-}
-
-#footer-content .col2 {
-    width: 33%;
-    padding: 0 0 30px 0;	
-}
-
-.float-left {
-    float: left;
-}
-
-.float-right {
-    float: right;
-}
-
-.align-left {
-    text-align: left;
-}
-
-.align-right {
-    text-align: right;
-}
-
-.clear {
-    clear: both;
 }
 
 .gray {
