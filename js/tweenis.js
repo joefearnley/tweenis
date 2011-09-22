@@ -56,10 +56,9 @@ function getTweetContent(tweet) {
 }
 
 /**
- * handle regex for @ replies, links, and hashtags.
- * http://www.simonwhatley.co.uk/parsing-twitter-usernames-hashtags-and-urls-with-javascript
+ * Linkify @ replies , links, and hashtags.
+ * http://www.simonwhatley.co.uk/examples/twitter/prototype/
  */
-
 String.prototype.parseURL = function() {
 	return this.replace(/[A-Za-z]+:\/\/[A-Za-z0-9-_]+\.[A-Za-z0-9-_:%&\?\/.=]+/g, function(url) {
 		return url.link(url);
