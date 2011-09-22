@@ -44,10 +44,13 @@ function updateList() {
  * @param tweet
  */
 function getTweetContent(tweet) {
+
+    console.log(tweet);
+
     var html = '';
     html += '<blockquote id="'+tweet.id+'">';
     html += '<p>';
-    html += '<img src="http://img.tweetimag.es/i/'+tweet.from_usert+'_n"  height="48" width="48" />';
+    html += '<img src="http://img.tweetimag.es/i/'+tweet.from_user+'_n"  height="48" width="48" />&nbsp;';
     html += '<a href="http://twitter.com/'+tweet.from_user+'" class="bold">'+tweet.from+'</a> says ';
     html += '<br />'+tweet.text.parseURL().parseUsername().parseHashtag();
     html += '</p>';
