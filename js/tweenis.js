@@ -1,13 +1,11 @@
 /**
- * @author: joe fearnley
- * @date:   03.21.09
- * @file:   tweenis.js
+ * @author: Joe Fearnley
  *
  * This file contains all the javascript for tweenis.net.
  */
 
 $(document).ready(function() {
-    $.getJSON('http://search.twitter.com/search.json?q=penis&rpp=10&callback=?', 
+    $.getJSON('http://search.twitter.com/search.json?q=penis&rpp=10&callback=?',
         function(response) {
             var html = '';
             $.each(response.results, function(i, tweet) {
@@ -25,7 +23,7 @@ function updateList() {
     var firstId = $('#main').find('blockquote:first').attr('id');
     var lastId = $('#main').find('blockquote:last').attr('id');
 
-    $.getJSON('http://search.twitter.com/search.json?q=penis&since_id='+firstId+'&callback=?', 
+    $.getJSON('http://search.twitter.com/search.json?q=penis&since_id='+firstId+'&callback=?',
         function(response) {
             var tweet = response.results[0];
             if(typeof tweet!= 'undefined') {
