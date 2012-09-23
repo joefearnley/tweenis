@@ -1,12 +1,5 @@
 (function ($) {
 
-  // test data ....
-  var tweets = [
-    { id: 1, text: 'Tweet 1', username: 'twitter user 1', img_url: '' },
-    { id: 2, text: 'Tweet 2', username: 'twitter user 2', img_url: '' },
-    { id: 3, text: 'Tweet 3', username: 'twitter user 3', img_url: '' },
-  ];
-
   var Tweet = Backbone.Model.extend({
     defaults: {
       id: 0,
