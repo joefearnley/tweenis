@@ -1,5 +1,6 @@
 (function ($) {
 
+  // test data ....
   var tweets = [
     { id: 1, text: 'Tweet 1', username: 'twitter user 1', img_url: '' },
     { id: 2, text: 'Tweet 2', username: 'twitter user 2', img_url: '' },
@@ -7,14 +8,11 @@
   ];
 
   var Tweet = Backbone.Model.extend({
-    //initialize: function() {
-    //  console.log('creating tweet');
-    //},
     defaults: {
       id: 0,
       text: '',
-      username: '',
-      img_url: ''  // should have a place holder here.....
+      from_user_name: '',
+      profile_image_url: ''
     }
   });
 
@@ -26,39 +24,31 @@
     }
   });
 
-  var TweetView = Backbone.View.extend({
-    template: _.template($('#tweetTemplate').html()),
-
-    render: function() {
-      console.log(this.model);
-      $(this.el).html(this.template(this.model.toJSON()));
-      return this;
-    }
-  });
-
   var TweenisView = Backbone.View.extend({
     el: $('#tweets'),
-
     initialize: function() {
       this.collection = new TweetList();
-      this.collection.fetch({
-        data: {
-          q: 'penis',
-          rpp: 10
-        }
-      });
-
       this.render();
     },
 
     render: function() {
-      //var that = this;
-//      _.each(this.collection.models, function(tweet) {
-//        that.renderTweet(tweet);
-//      }, this);
-        $.each(this.collection.models, function(i, tweet) {
-          console.log(tweet);
-        });
+      var that = this;
+      this.collection.fetch({
+        data: {
+          q: 'penis',
+          rpp: 10
+        },
+        success: function(response) {
+          $.each(response.models, function(i, tweet) {
+            tweet.attributes.text = $.linkify(tweet.attributes.text);
+            that.renderTweet(tweet);
+          });
+
+          var intervalId = setInterval(function() {
+            that.addTweet();
+          }, 7000);
+        }
+      });
     },
 
     renderTweet: function(tweet) {
@@ -69,27 +59,31 @@
     },
 
     addTweet: function() {
+      var latestTweetId = $('#tweets').children('div').first().children('blockquote').attr('id');
+      var that = this;
+      this.collection.fetch({
+        data: {
+          q: 'penis',
+          rpp: 1,
+          since_id: latestTweetId
+        },
+        success: function(response) {
+          var tweetModel = response.models[0];
+          tweetModel.attributes.text = $.linkify(tweetModel.attributes.text);
+          that.renderTweet(tweetModel);
+        }
+      });
     }
 
   });
 
-  var Tweenis2View = Backbone.View.extend({
-    initialize: function() {
-      this.render();
-    },
+  var TweetView = Backbone.View.extend({
+    template: _.template($('#tweetTemplate').html()),
     render: function() {
-      $.getJSON('http://search.twitter.com/search.json?q=penis&rpp=10&callback=?', {
-          q: 'penis',
-          rpp: 10
-        }, function(response) {
-          $.each(response.results, function(i, tweet) {
-            console.log(tweet);
-          });
-        })
-    },
-
+      $(this.el).html(this.template(this.model.toJSON()));
+      return this;
+    }
   });
 
-  //var tweet_view = new TweenisView();
-  var tweet_view = new Tweenis2View();
+  var tweet_view = new TweenisView();
 } (jQuery));
