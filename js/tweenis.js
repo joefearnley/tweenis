@@ -1,59 +1,60 @@
 /**
  * @author: joe fearnley
- * @date:   03.21.09
- * @file:   tweenis.js
  *
  * This file contains all the javascript for tweenis.net.
  */
 
-$(document).ready(function() {
-    $.getJSON('http://search.twitter.com/search.json?q=penis&rpp=10&callback=?', 
-        function(response) {
-            var html = '';
-            $.each(response.results, function(i, tweet) {
-                html += (typeof tweet != 'undefined') ?  getTweetContent(tweet) : '';
-            });
-            $('#main').html(html);
+$(function() {
+
+  var tweetTemplate = $('#tweetTemplate').html();
+  var errorTemplate =  $('#errorTemplate').html();
+
+  console.log($.load('templates/tweetTemplate.html'));
+
+  $.getJSON('http://search.twitter.com/search.json?q=penis&rpp=10&callback=?',
+    function(response) {
+      if(response.error) {
+        $('#tweets').html(Mustache.to_html(errorTemplate, response));
+        return false;
+      }
+
+      $.each(response.results, function(i, tweet) {
+        tweet.text = $.linkify(tweet.text);
+        //console.log(tweet.text);
+        console.log(tweetTemplate);
+        $('#tweets').prepend(Mustache.to_html(tweetTemplate, tweet));
+
+//        tweet.text = tweet.text.parseURL().parseUsername().parseHashtag();
+//        var data = { name: 'google' };
+//        var template_t = '<p><a href="http://google.com">{{ name }}</a></p>';
+//        console.log(template_t);
+//        $('#tweets').prepend(Mustache.to_html(template_t, data));
+      });
+    });
+/*
+  var interval = setInterval(function() {
+    var latestTweetId = $('#tweets').find('blockquote:first').attr('id');
+    var earliestTweetId = $('#tweets').find('blockquote:last').attr('id');
+
+    $.getJSON('http://search.twitter.com/search.json?callback=?', {
+        data:
+          'q': 'penis',
+          'rpp': 1,
+          'since_id': latestTweetId
+      }, function(response) {
+        var template = $('#tweetTemplate').html();
+        $.each(response.results, function(i, tweet) {
+          var html = Mustache.to_html(template, tweet);
+          $('#tweet').prepend(html);
+          $('#'+tweet.id).hide();
+          $('#'+tweet.id).show('slow');
+          $('#'+lastId).remove();
         });
-    var interval = setInterval(updateList, 10000);
+
+      });
+  }, 10000);
+*/
 });
-
-/**
- * Check for update by searching twitter API
- */
-function updateList() {
-    var firstId = $('#main').find('blockquote:first').attr('id');
-    var lastId = $('#main').find('blockquote:last').attr('id');
-
-    $.getJSON('http://search.twitter.com/search.json?q=penis&since_id='+firstId+'&callback=?', 
-        function(response) {
-            var tweet = response.results[0];
-            if(typeof tweet!= 'undefined') {
-                var html = getTweetContent(tweet);
-                $('#main').prepend(html);
-                $('#'+tweet.id).hide();
-                $('#'+tweet.id).show('slow');
-                $('#'+lastId).remove();
-            }
-        });
-    return false;
-}
-
-/**
- * Create the html for an individual tweet.
- * @param tweet
- */
-function getTweetContent(tweet) {
-    var html = '';
-    html += '<blockquote id="'+tweet.id+'">';
-    html += '<p>';
-    html += '<img src="http://img.tweetimag.es/i/'+tweet.from_user+'_n"  height="48" width="48" />&nbsp;&nbsp;';
-    html += '<a href="http://twitter.com/'+tweet.from_user+'" class="bold">'+tweet.from_user+'</a> says ';
-    html += '<br />'+tweet.text.parseURL().parseUsername().parseHashtag();
-    html += '</p>';
-    html += '</blockquote>';
-    return html;
-}
 
 /**
  * Linkify @ replies , links, and hashtags.
