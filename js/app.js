@@ -19,6 +19,7 @@
 
   var TweenisView = Backbone.View.extend({
     el: $('#tweets'),
+
     initialize: function() {
       this.collection = new TweetList();
       this.render();
@@ -72,12 +73,14 @@
   });
 
   var TweetView = Backbone.View.extend({
-    template: _.template($('#tweetTemplate').html()),
+    template: $('#tweetTemplate').html(),
+
     render: function() {
-      $(this.el).html(this.template(this.model.toJSON()));
+      var html = Mustache.to_html(this.template, this.model.toJSON());
+      $(this.el).html(html);
       return this;
     }
   });
 
-  var tweet_view = new TweenisView();
+  var tweenisView = new TweenisView();
 } (jQuery));
