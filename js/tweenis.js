@@ -1,26 +1,15 @@
 $(function() {
 
-  var tweetTemplate = $('#tweetTemplate').html();
-  var errorTemplate =  $('#errorTemplate').html();
+  var TwitterCall = function(data) {
+    var tweetTemplate = $('#tweetTemplate').html();
+    var errorTemplate =  $('#errorTemplate').html();
 
-  $.getJSON('http://search.twitter.com/search.json?q=penis&rpp=10&callback=?',
-    function(response) {
-      if(response.error) {
-        $('#tweets').html(Mustache.to_html(errorTemplate, response));
-        return false;
-      }
-
-      $.each(response.results, function(i, tweet) {
-        tweet.text = $.linkify(tweet.text);
-        $('#tweets').prepend(Mustache.to_html(tweetTemplate, tweet));
-      });
+    var searchParameters = '';
+    $.each(data, function(key, value) {
+      searchParameters += key + '=' + value + '&';
     });
 
-  var interval = setInterval(function() {
-    var latestTweetId = $('#tweets').find('blockquote:first').attr('id');
-    var earliestTweetId = $('#tweets').find('blockquote:last').attr('id');
-
-    $.getJSON('http://search.twitter.com/search.json?q=penis&rpp=1&since_id='+latestTweetId+'&callback=?',
+    $.getJSON('http://search.twitter.com/search.json?' + searchParameters + '&callback=?',
       function(response) {
         if(response.error) {
           $('#tweets').html(Mustache.to_html(errorTemplate, response));
@@ -30,8 +19,26 @@ $(function() {
         $.each(response.results, function(i, tweet) {
           tweet.text = $.linkify(tweet.text);
           $('#tweets').prepend(Mustache.to_html(tweetTemplate, tweet));
-          $('#'+tweet.id).hide().show('slow');
+
+          if(searchParameters.indexOf('since_id') !== -1) {
+            $('#'+tweet.id).hide().show('slow');
+          }
         });
       });
+  };
+
+  var queryData = {
+    'q': 'penis',
+    'rrp': 10
+  };
+
+  var call = new TwitterCall(queryData);
+
+  var interval = setInterval(function() {
+    queryData.since_id = $('#tweets').find('blockquote:first').attr('id');
+    queryData.rpp = 1;
+    var call = new TwitterCall(queryData);
   }, 5000);
+
 });
+

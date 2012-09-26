@@ -1,164 +1,166 @@
 * { padding: 0; margin: 0; }
 
 body {
-    margin: 0; 	padding: 0;
-    font: normal 73%/1.5em "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-    font-weight: 300;
-    color: #555;
-    background: #FFF url(../images/bg.jpg) repeat-x;
-    text-align: center;
+  margin: 0; 	padding: 0;
+  font: normal 73%/1.5em "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 300;
+  color: #555;
+  background: #FFF url(../images/bg.jpg) repeat-x;
+  text-align: center;
 }
 
 a { 
-    background: inherit;
-    color: #009ACD;
-    text-decoration: none;
+  background: inherit;
+  color: #009ACD;
+  text-decoration: none;
 }
 
 a:hover {
-    background: inherit;
-    color: #006699;
-    text-decoration: underline;
+  background: inherit;
+  color: #006699;
+  text-decoration: underline;
 }
 
 h1, h2, h3 {
-    font: bold 1em "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-    font-weight: 300;
+  font: bold 1em "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 300;
 }
 
 h1 {
-    font-size: 1.4em; color: #009ACD;
+  font-size: 1.4em; color: #009ACD;
 }
 
 h2 {
-    font-size: 1.2em;
-    text-transform: uppercase;
+  font-size: 1.2em;
+  text-transform: uppercase;
 :}
 
 p, h1, h2 {
-    margin: 10px 15px;
+  margin: 10px 15px;
 }
 
 ul, ol {
-    margin: 10px 30px; padding: 0 15px;
+  margin: 10px 30px;
+  padding: 0 15px;
 }
 
 img {
-    border: 1px solid #DADADA;
-    padding: 5px;
-    background: #FAFAFA;
+  border: 1px solid #DADADA;
+  padding: 5px;
+  background: #FAFAFA;
 }
 
 blockquote {
-    margin: 15px; padding: 0 0 0 20px;
-    background-color: #FAFAFA;
-    background-position: 8px 10px;
-    border: 1px solid #f2f2f2;
-    border-left: 3px solid #009ACD;
-    font: 1.2em/1.5em "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-    font-weight: 300;
-    color: #666666;
+  margin: 15px; padding: 0 0 0 20px;
+  background-color: #FAFAFA;
+  background-position: 8px 10px;
+  border: 1px solid #f2f2f2;
+  border-left: 3px solid #009ACD;
+  font: 1.2em/1.5em "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 300;
+  color: #666666;
 }
 
 #header-content, #content, #footer-content {
-    width: 760px;
+  width: 760px;
 }
 
 #header {
-    height: 100px;
-    text-align: left;
+  height: 100px;
+  text-align: left;
 }
 
 #header-content {
-    margin: 0 auto; padding: 0;
-    position: relative;
+  margin: 0 auto;
+  padding: 0;
+  position: relative;
 }
 
 #header-content h1#logo {
-    position: absolute;
-    font: bold 45px "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-    font-weight: 300;
-    letter-spacing: -2px;
-    color: #FFF;
-    margin: 0; padding: 0;
-    top: 0;
-    left: 0px;
+  position: absolute;
+  font: bold 45px "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 300;
+  letter-spacing: -2px;
+  color: #FFF;
+  margin: 0; padding: 0;
+  top: 0;
+  left: 70px;
 }
 
 #header-content h1#logo a {
-    text-decoration: none;
-    color: #FFF;
+  text-decoration: none;
+  color: #FFF;
 }
 
 #header-content #slogan {
-    position: absolute;
-    font: bold 12px "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-    font-weight: 300;
-    text-transform: none;
-    color: #FFF;
-    margin: 0;
-    padding: 0;
-    top: 55px;
-    left: 40px;
+  position: absolute;
+  font: bold 12px "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 300;
+  text-transform: none;
+  color: #FFF;
+  margin: 0;
+  padding: 0;
+  top: 55px;
+  left: 120px;
 }
 
 .headerphoto {
-    margin: 0 auto;
-    width: 770px;
-    height: 200px;
-    padding: 15px 10px 10px 10px;
-    background: #FFF url(../images/tweenis.jpg) no-repeat center;
+  margin-left: 364px;
+  width: 380px;
+  height: 94px;
+  padding: 0px;
+  background: #FFF url(../images/tweenis.jpg) no-repeat center;
 }
 
 #content-wrap {
-    clear: both;
-    float: left;
-    width: 100%;
+  clear: both;
+  float: left;
+  width: 100%;
 }
 
 #content {
-    text-align: left;
-    padding: 0;
-    margin: 0 auto;
+  text-align: left;
+  padding: 0;
+  margin: 0 auto;
 }
 
 #main {
-    float: left;
-    width: 100%;
-    margin: 0 0 10px 0; padding: 0;
+  float: left;
+  width: 100%;
+  margin: 0 0 10px 0; padding: 0;
 }
 
 #main ul li {
-    list-style-image: url(../images/bullet.gif);
+  list-style-image: url(../images/bullet.gif);
 }
 
 #footer {
-    clear: both;
-    margin: 0; padding: 0;
-    font: normal .95em/1.6em  "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-    font-weight: 300;
-    text-align: center;
+  clear: both;
+  margin: 0; padding: 0;
+  font: normal .95em/1.6em  "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 300;
+  text-align: center;
 }
 
 #footer-content {
-    margin: 0 auto;
-    padding-left: 15px;
+  margin: 0 auto;
+  padding-left: 15px;
 }
 
 #footer-content a {
-    text-decoration: none;
-    color: #777;
+  text-decoration: none;
+  color: #777;
 }
 
 #footer-content a:hover {
-    text-decoration: underline;
-    color: #333;
+  text-decoration: underline;
+  color: #333;
 }
 
 .gray {
-    color: #BFBFBF;
+  color: #BFBFBF;
 }
 
 .bold {
-    font-weight: bold;
+  font-weight: bold;
 }
