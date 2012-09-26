@@ -70,7 +70,8 @@ blockquote {
 }
 
 #header-content {
-    margin: 0 auto; padding: 0;
+    margin: 0 auto;
+    padding: 2 0 0 0;
     position: relative;
 }
 
@@ -80,9 +81,10 @@ blockquote {
     font-weight: 300;
     letter-spacing: -2px;
     color: #FFF;
-    margin: 0; padding: 0;
+    margin: 0;
+    padding: 0;
     top: 0;
-    left: 0px;
+    left: 70px;
 }
 
 #header-content h1#logo a {
@@ -99,14 +101,14 @@ blockquote {
     margin: 0;
     padding: 0;
     top: 55px;
-    left: 40px;
+    left: 120px;
 }
 
 .headerphoto {
-    margin: 0 auto;
-    width: 770px;
-    height: 200px;
-    padding: 15px 10px 10px 10px;
+    width: 380px;
+    height: 94px;
+    padding: 0px 0px 0px 10px;
+    margin-left: 355px;
     background: #FFF url(../images/tweenis.jpg) no-repeat center;
 }
 
