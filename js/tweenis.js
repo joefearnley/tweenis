@@ -35,9 +35,7 @@ $(function() {
           tweet.text = $.linkify(tweet.text);
           $('#tweets').prepend(Mustache.to_html(tweetTemplate, tweet));
           $('#'+tweet.id).hide().show('slow');
-          $('#'+earliestTweetId).remove();
         });
-
       });
   }, 5000);
 });
