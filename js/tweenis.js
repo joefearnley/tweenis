@@ -4,9 +4,6 @@
 
 $(function() {
 
-  var tweetTemplate = $('#tweetTemplate').html();
-  var errorTemplate =  $('#errorTemplate').html();
-
   $.getJSON('http://search.twitter.com/search.json?q=penis&rpp=10&callback=?',
     function(response) {
       if(response.error) {
@@ -38,4 +35,29 @@ $(function() {
         });
       });
   }, 5000);
+/*
+  var TwitterCall = function(data) {
+    var tweetTemplate = $('#tweetTemplate').html();
+    var errorTemplate =  $('#errorTemplate').html();
+
+    var seachParams = '';
+
+    $.getJSON('http://search.twitter.com/search.json?q=penis&rpp=10&callback=?',
+      function(response) {
+        if(response.error) {
+          $('#tweets').html(Mustache.to_html(errorTemplate, response));
+          return false;
+        }
+
+        $.each(response.results, function(i, tweet) {
+          tweet.text = $.linkify(tweet.text);
+          $('#tweets').prepend(Mustache.to_html(tweetTemplate, tweet));
+
+          if(searchParms.indexOf('since_id') !== -1) {
+            $('#'+tweet.id).hide().show('slow');
+          }
+        });
+      });
+  };
+*/
 });
