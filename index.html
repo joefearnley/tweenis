@@ -22,7 +22,7 @@
 -->
     <div id="content-wrap">
         <div id="content">
-            <div id="tweets">loading.....</div>
+            <div id="tweets"></div>
         </div>
     </div>
     <div id="footer">
@@ -32,12 +32,12 @@
     </div>
   </div>
 
-<script id="tweetTemplate" type="text/template">
+<script id="tweetTemplate" type="text/html">
   <blockquote id="{{ id }}">
     <p>
       <img src="{{ profile_image_url }}"  height="48" width="48" />&nbsp;&nbsp;
       <a href="http://twitter.com/{{ from_user }}" class="bold">{{ from_user }}</a> says
-      <br />{{ text }}
+      <br />{{& text }}
     </p>
   </blockquote>
 </script>
