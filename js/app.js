@@ -49,6 +49,7 @@
         model: tweet
       });
       this.$el.prepend(tweetView.render().el);
+      $('#'+tweet.id).hide().show('slow');
     },
 
     addTweet: function() {
