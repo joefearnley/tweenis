@@ -35,7 +35,7 @@
         success: function(response) {
           $.each(response.models, function(i, tweet) {
             tweet.attributes.text = $.linkify(tweet.attributes.text);
-            that.renderTweet(tweet);
+            that.renderTweet(that.template, tweet);
           });
 
           var intervalId = setInterval(function() {
@@ -45,10 +45,12 @@
       });
     },
 
-    renderTweet: function(tweet) {
+    renderTweet: function(template, tweet) {
       var tweetView = new TweetView({
+        template: template,
         model: tweet
       });
+
       this.$el.prepend(tweetView.render().el);
       $('#'+tweet.id).hide().show('slow');
     },
@@ -73,8 +75,6 @@
   });
 
   var TweetView = Backbone.View.extend({
-    template: $('#tweetTemplate').html(),
-
     render: function() {
       var html = Mustache.to_html(this.template, this.model.toJSON());
       $(this.el).html(html);
@@ -82,5 +82,9 @@
     }
   });
 
-  var tweenisView = new TweenisView();
-} (jQuery));
+//  var tweetTemplate = '';
+  $.get('templates/tweet.html', function(tweetTemplate) {
+    var tweenisView = new TweenisView({ template: tweetTemplate });
+  });
+
+}(jQuery));
