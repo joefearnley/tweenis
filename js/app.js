@@ -35,7 +35,7 @@
         },
         success: function(response) {
           $.each(response.models, function(i, tweet) {
-            tweet.attributes.text = linkify(tweet.attributes.text);
+            tweet.attributes.text = that.linkTweet(tweet.attributes.text);
             that.renderTweet(that.template, tweet);
           });
 
@@ -67,11 +67,15 @@
         },
         success: function(response) {
           var tweetModel = response.models[0];
-          tweetModel.attributes.text = linkify(tweetModel.attributes.text);
+          tweetModel.attributes.text = that.linkTweet(tweetModel.attributes.text);
           that.renderTweet(that.template, tweetModel);
         }
       });
-    }
+    },
+
+    linkTweet: function(tweet) {
+      return linkify(tweet, false /* hashtag */, true /* www */);
+     }
 
   });
 
