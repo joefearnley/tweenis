@@ -20,9 +20,10 @@
   var TweenisView = Backbone.View.extend({
     el: $('#tweets'),
 
-    initialize: function() {
+    initialize: function(parms) {
       this.collection = new TweetList();
       this.render();
+      this.template = parms.template;
     },
 
     render: function() {
@@ -34,7 +35,7 @@
         },
         success: function(response) {
           $.each(response.models, function(i, tweet) {
-            tweet.attributes.text = $.linkify(tweet.attributes.text);
+            tweet.attributes.text = linkify(tweet.attributes.text);
             that.renderTweet(that.template, tweet);
           });
 
@@ -66,8 +67,8 @@
         },
         success: function(response) {
           var tweetModel = response.models[0];
-          tweetModel.attributes.text = $.linkify(tweetModel.attributes.text);
-          that.renderTweet(tweetModel);
+          tweetModel.attributes.text = linkify(tweetModel.attributes.text);
+          that.renderTweet(that.template, tweetModel);
         }
       });
     }
@@ -75,6 +76,10 @@
   });
 
   var TweetView = Backbone.View.extend({
+    initialize: function(parms) {
+      this.template = parms.template;
+      this.model = parms.model;
+    },
     render: function() {
       var html = Mustache.to_html(this.template, this.model.toJSON());
       $(this.el).html(html);
@@ -82,7 +87,6 @@
     }
   });
 
-//  var tweetTemplate = '';
   $.get('templates/tweet.html', function(tweetTemplate) {
     var tweenisView = new TweenisView({ template: tweetTemplate });
   });
